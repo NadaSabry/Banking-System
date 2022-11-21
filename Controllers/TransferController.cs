@@ -14,9 +14,10 @@ namespace Banking_System.Controllers
             this.db = db;
         }
         [HttpGet]
-        public IActionResult AddTransfer()
+        public IActionResult AddTransfer(int id)
         {
             AddTransferVM trans = new AddTransferVM();
+            trans.customerFrom = db.Customers.Find(id);
             trans.customers = db.Customers.Select(n => new SelectListItem { Value = n.Id.ToString(), Text = n.Name }).ToList();
             return View(trans);
         }

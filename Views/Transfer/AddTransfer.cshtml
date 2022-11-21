@@ -7,30 +7,28 @@
 <div class="container">
         <div class="row mt-2">
             <div class="col-lg-3 col-md-2"></div>
-            <div class="col-lg-6 col-md-8 " style="background-color:#eee;">
+            <div class="col-lg-6 col-md-8 " style="background-color:#D3D3D3;">
                 <div class="col-lg-12 text-center ">
                     <img src="~/Images/transfer.png" alt="no image" style="width: 100px; height: 100px;" />
                 </div>
                 <h3 class="col-lg-12 text-center text-dark">
-                   Transfer
+                   @Model.customerFrom.Name
                 </h3>
+
 
                 <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
                         <form method="post" asp-action="AddTransfer" enctype="multipart/form-data">
                           <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-               <!-- From  List of Customer-->
-                      <div class="form-group">
-                          <label asp-for="transfer.FromId" class="control-label text-dark">From</label>
-                          <select name="from" asp-items="@Model.customers" class="form-select" required>
-                             <option value="">Choose</option>
-                          </select>
-                      </div>
+            
+               <!-- From  List of Customer -->
+                    <div class="form-group">
+                           <input name="from" value ="@Model.customerFrom.Id" asp-for="@Model.customerFrom.Id" class="form-control" type="hidden" required/>
+                    </div>
 
                <!-- To  List of Customer-->
                       <div class="form-group">
-                          <label asp-for="transfer.ToId" class="control-label text-dark">To</label>
+                          <label asp-for="@Model.transfer.ToId" class="control-label text-dark">To</label>
                           <select name="to" asp-items="@Model.customers" class="form-select" required>
                              <option value="">Choose</option>
                           </select>

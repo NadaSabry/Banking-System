@@ -7,6 +7,7 @@
 
 <table>
   <tr>
+    <th>Number</th>
     <th>From</th>
     <th>To</th>
     <th>Amount Of Money</th>
@@ -15,6 +16,7 @@
   @foreach(var item in Model)
   {
      <tr>
+       <td>@item.Id</td>
        <td>@item.customerFrom.Name</td>
        <td>@item.customerTo.Name</td>
        <td>@item.AmountOfMoney</td>
@@ -33,13 +35,13 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid lightgray;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: lightgray;
 }
 </style>
 
