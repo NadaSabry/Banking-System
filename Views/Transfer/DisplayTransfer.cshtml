@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Banking_System.Models.Transfer>
+@{
+    ViewData["Title"] = "Transfer Table";
+}
+
+<h2>Transfer Table</h2>
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Amount Of Money</th>
+    <th>Date</th>
+  </tr>
+  @foreach(var item in Model)
+  {
+     <tr>
+       <td>@item.customerFrom.Name</td>
+       <td>@item.customerTo.Name</td>
+       <td>@item.AmountOfMoney</td>
+       <td>@item.Date</td>
+     </tr>
+  }
+</table>
+
+
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
